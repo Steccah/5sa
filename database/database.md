@@ -303,7 +303,7 @@ WHERE CittaNascita= 'New York' OR CittaNascita = 'Gotham City'
 
 ---
 
-Possiamo anche selezionare gli studenti che sono nati a New York e che sono alti più di 175 cm:
+Possiamo anche selezionare gli studenti che sono nati a New York e che sono alti più di 180 cm:
 
 ```sql
 SELECT Nome, Cognome, CittaNascita AS Città, Altezza
