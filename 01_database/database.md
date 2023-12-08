@@ -384,12 +384,13 @@ WHERE DataNascita BETWEEN '1/1/1981' AND '31/12/1996'
 
 ---
 
-Se vogliamo avere la top 3 degli studenti più alti possiamo usare la parola chiave TOP:
+Se vogliamo avere la top 3 degli studenti più alti possiamo usare la parola chiave LIMIT:
 
 ```sql
-SELECT TOP 3 Nome, Cognome, Altezza
+SELECT Nome, Cognome, Altezza
 FROM Studente
 ORDER BY Altezza DESC
+LIMIT 3
 ```
 
 <div style="font-size: 0.9em;">
