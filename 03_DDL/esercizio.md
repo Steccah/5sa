@@ -74,6 +74,61 @@ Quindi:
 
 ---
 
+## DDL
+
+```sql
+CREATE TABLE Cliente (
+    CodiceCliente INT PRIMARY KEY,
+    Nome VARCHAR(20),
+    Cognome VARCHAR(20),
+    AnnoNascita INT,
+    Telefono VARCHAR(20)
+);
+
+CREATE TABLE Rappresentante (
+    CodiceRappresentante INT PRIMARY KEY,
+    NomeRappresentante VARCHAR(20),
+    Sede VARCHAR(20)
+);
+
+CREATE TABLE TipoAuto (
+    CodiceTipo INT PRIMARY KEY,
+    Descrizione VARCHAR(20),
+    ConsigliGuida VARCHAR(20),
+    IstruzioniManutenzione VARCHAR(20)
+);
+```
+---
+```sql
+CREATE TABLE Produttore (
+    CodiceProduttore INT PRIMARY KEY,
+    NomeProduttore VARCHAR(20),
+    Rappresentante INT,
+    FOREIGN KEY (Rappresentante) REFERENCES Rappresentante(CodiceRappresentante)
+);
+
+CREATE TABLE Auto (
+    Targa VARCHAR(20) PRIMARY KEY,
+    Modello VARCHAR(20),
+    Prezzo INT,
+    Cilindrata INT,
+    Produttore INT,
+    Tipo INT,
+    FOREIGN KEY (Produttore) REFERENCES Produttore(CodiceProduttore),
+    FOREIGN KEY (Tipo) REFERENCES TipoAuto(CodiceTipo)
+);
+
+CREATE TABLE Contratto (
+    CodiceContratto INT PRIMARY KEY,
+    Data DATE,
+    CodiceCliente INT,
+    Targa VARCHAR(20),
+    FOREIGN KEY (CodiceCliente) REFERENCES Cliente(CodiceCliente),
+    FOREIGN KEY (Targa) REFERENCES Auto(Targa)
+);
+```
+---
+
 ## Interrogazioni
 ```sql
 -- 1) Elenco clienti ordinato per cognome e nome
