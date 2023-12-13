@@ -163,14 +163,14 @@ WHERE Sede IN ('Milano', 'Roma', 'Venezia');
 
 -- 7) Numero di auto che il signor Rossi codice 1234 ha comprato
 SELECT COUNT(*)
-FROM Acquista A, Cliente C
-WHERE C.CodiceCliente = A.CodiceCliente
+FROM Contratto Co, Cliente C
+WHERE C.CodiceCliente = Co.CodiceCliente
 AND C.Cognome = 'Rossi' AND C.CodiceCliente = 1234;
 
 -- 8) Clienti che hanno acquistato un'auto fiat di tipo sportiva nel marzo 2015
 SELECT C.*
-FROM Cliente C, Acquista A, Auto Au, TipoAuto T
-WHERE C.CodiceCliente = A.CodiceCliente AND A.Targa = Au.Targa AND Au.Modello = T.Targa
-AND T.Descrizione = 'Sportiva' AND MONTH(A.Data) = 3
+FROM Cliente C, Contratto Co, Auto Au, TipoAuto T
+WHERE C.CodiceCliente = A.CodiceCliente AND Co.Targa = Au.Targa AND Au.Modello = T.Targa
+AND T.Descrizione = 'Sportiva' AND MONTH(Co.Data) = 3
 AND YEAR(A.Data) = 2015 AND Au.Produttore = 'Fiat';
 ```
