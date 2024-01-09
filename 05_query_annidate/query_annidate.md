@@ -40,7 +40,7 @@ img[alt~="center"] {
 
 Una query annidata è una query che viene eseguita all'interno di un'altra query.
 
-La `SELECT` annidata (quella interna) deve restituire un unico valore affinché questo possa essere valutato nell’espressione
+La `SELECT` annidata (quella interna) deve restituire un unico valore affinché questo possa essere valutato nell’espressione, oppure una lista di valori.
 
 ```sql
 SELECT Sum(Reddito) FROM Persone
@@ -51,7 +51,8 @@ Reddito > ( SELECT Avg(Reddito) FROM Persone) ;
 ```sql
 SELECT Sum(Reddito) FROM Persone
 WHERE Eta > 30 AND
-Reddito > ( SELECT Reddito FROM Persone WHERE Nome LIKE ‘A%’) 
+Reddito IN ( SELECT Reddito FROM Persone
+             WHERE Eta > 30 AND Sesso = 'F' ) ;
 ```
 
 ---
