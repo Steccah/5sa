@@ -1,0 +1,4 @@
+1) Trova nome e cognome degli utenti che hanno effettuato un ordine dopo il 2024-01-02.
+2) Conta quanti ordini ha effettuato ogni utente.
+3) Tutti gli ordini che costino più della media.
+4) Tutti gli utenti che abbiano speso in media per ogni ordine più della media di tutti gli utenti
