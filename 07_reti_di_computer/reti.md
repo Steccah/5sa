@@ -232,3 +232,215 @@ L’informazione da consegnare viene fatta precedere da un’intestazione che in
 L’ultimo livello della pila ISO-OSI è quello che si interfaccia con l’utente della rete e le sue applicazioni. Sono stati definiti protocolli specifici di livello Application per varie tipologie di applicazioni, come il file transfer, l’accesso ai database, l’email.
 Il livello di applicazione ha la funzione di scambiare i risultati tra i programmi in un modello client/server.
 
+---
+
+## Incapsulamento
+
+Il processo di incapsulamento è il processo mediante il quale i dati vengono suddivisi in pacchetti e vengono aggiunti gli header dei vari livelli. Il processo inverso, mediante il quale i dati vengono ricostruiti, è detto decapsulamento.
+
+Il singolo pacchetto, durante il suo viaggio da un host a un altro, partendo dal livello più alto della struttura dell’host di partenza (livello di applicazione) percorre in ordine tutti i livelli sottostanti fino ad arrivare al livello fisico, per poi raggiungere il livello fisico dell’host di destinazione tramite il mezzo trasmissivo. Tale percorso viene compiuto a ritroso nel messaggio di risposta dell’host, fino a raggiungere nuovamente il livello applicazione del mittente.
+
+---
+
+## Incapsulamento
+
+Il pacchetto, nel percorrere i diversi livelli, subisce l’incapsulamento.
+In corrispondenza di ogni strato della struttura che attraversa, al pacchetto dell’host mittente vengono aggiunte delle informazioni proprie del livello attraversato. Il pacchetto viene incapsulato nel senso che vengono man mano aggiunte nuove informazioni, una dentro l’altra, come una matrioska. Viceversa, quando il pacchetto giunge a destinazione, durante il percorso di risalita, viene decapsulato dai vari livelli e vengono estratte le informazioni utili al livello specifico, fino a ottenere il pacchetto originale. Perciò, in ogni livello, il pacchetto assume nomi identificativi differenti.
+
+---
+## Incapsulamento
+![image](image.png)
+
+---
+
+## Classificazione delle reti
+
+Le reti possono essere classificate in base a diversi criteri:
+- Per dimensione
+- Per topologia
+- Per modello (client/server o peer-to-peer)
+
+---
+
+## Classificazione delle reti per dimensione
+
+Le reti possono essere classificate in base alla loro dimensione in:
+- NFC (Near Field Communication)
+- BAN (Body Area Network)
+- PAN (Personal Area Network)
+- HAN (Home Area Network)
+- LAN (Local Area Network)
+- WAN (Wide Area Network)
+- GAN (Global Area Network)
+
+---
+
+### NFC (Near Field Communication)
+Si tratta di una tecnologia di comunicazione wireless a corto raggio (circa 10 cm) che permette lo scambio di dati tra dispositivi elettronici. L'esempio più comune è il pagamento contactless attraverso lo smartphone.
+
+### BAN (Body Area Network)
+Si tratta di una rete di dispositivi elettronici indossabili che comunicano tra loro. Un esempio è il fitness tracker, lo smartwatch, e in generale tutti i wearable. La distanza massima tra i dispositivi è di circa 2 metri.
+
+### PAN (Personal Area Network)
+Si tratta di una rete di dispositivi elettronici che comunicano tra loro. Un esempio è la rete bluetooth. La distanza massima tra i dispositivi è di circa 10 metri.
+
+---
+
+### HAN (Home Area Network)
+Si tratta di una rete di dispositivi elettronici che comunicano tra loro all'interno di una casa. Un esempio è la rete Wi-Fi, la cui distanza massima tra i dispositivi è di circa 100 metri. Vengono utilizzate tecnologie sia cablate che wireless. Comprende dispositivi come computer, stampanti, smart TV, smartphone, ecc.
+
+### LAN (Local Area Network)
+Si tratta di una rete di dispositivi elettronici che comunicano tra loro all'interno di un edificio o di un campus. Vengono utilizzate tecnologie sia cablate che wireless. Spesso data la dimensione della rete, vengono utilizzati dispositivi di rete come router, switch, hub, ecc.
+
+---
+
+### WAN (Wide Area Network)
+Una rete WAN è composta da due o più reti LAN interconnesse tra loro, connesse tramite linee dedicate o in generale tramite internet. Le reti WAN possono essere utilizzate per collegare sedi distanti tra loro, come ad esempio le sedi di un'azienda.
+
+### GAN (Global Area Network)
+Sono reti che collegano tra loro dispositivi sparsi in tutto il mondo. Un esempio è internet.
+
+---
+
+<!-- ![bg right:20% w:230px](images/crying-rg.jpg) -->
+
+## Classificazione delle reti per topologia
+Una topologia di rete è la struttura fisica o logica di una rete, che definisce il modo in cui i nodi sono collegati tra loro. Le topologie di rete più comuni sono:
+- A stella
+- Ad anello
+- A bus
+- Ad albero
+- A maglia (Completamente connessa o parzialmente connessa)
+
+---
+
+### Topologia a stella
+
+Una rete a stella possiede un elemento comune centrale (hub o switch) al quale sono connessi tutti gli altri nodi. Tutti i dati che transitano sulla rete devono passare attraverso il nodo centrale. Se il nodo centrale non funziona, tutta la rete non funziona. La connessione o disconnessione di un nodo non influisce sul funzionamento della rete.
+
+![bg right:20% w:260px](stella.png)
+
+---
+
+### Topologia ad anello
+
+Una rete ad anello è una rete in cui ogni nodo è connesso ai due nodi adiacenti e ogni nodo funge da ripetitore per i dati. Se i dati viaggiano in un'unica direzione (Rete ad anello unidirezionale) quando un nodo non funziona, tutta la rete non funziona. Se i dati viaggiano in entrambe le direzioni (Rete ad anello bidirezionale) quando un nodo non funziona, la rete continua a funzionare, ma se ne cade un secondo, la rete non funziona più.
+Per poter connettere un nuovo nodo alla rete è necessario interrompere la rete e modificare i due host adiacenti, rendendo la rete poco flessibile.
+
+![bg right:20% w:260px](anello.png)
+
+---
+
+### Topologia a bus
+
+Una rete a bus è una rete in cui tutti i nodi sono connessi ad un unico cavo, chiamato appunto bus o dorsale. Se il cavo si rompe, tutta la rete non funziona. In questo tipo di reti è necessario utilizzare dei terminatori per evitare che i segnali si riflettano e interferiscano con i dati in transito. Può comunicare un solo nodo alla volta, per cui se due nodi trasmettono contemporaneamente, i dati si sovrappongono e non sono più leggibili (Collisione). I dati trasmessi sono ricevuti da tutti i nodi della rete, ma solo il nodo destinatario li accetta.
+
+![bg right:20% w:260px](bus.png)
+
+---
+
+### Topologia ad albero
+
+Una rete ad albero è una rete in cui i nodi sono collegati tra loro in modo gerarchico, in modo da formare una struttura ad albero. La rete è composta da un nodo radice, che è il nodo principale, e da nodi interni, che sono i nodi intermedi, e da nodi foglia, che sono i nodi finali. I dati viaggiano dal nodo radice ai nodi foglia. Se il nodo radice non funziona, tutta la rete non funziona. In generale, se un nodo non funziona, tutti i nodi che dipendono da esso non funzionano.
+
+![bg right:20% w:260px](albero.png)
+
+---
+
+### Topologia a maglia completa
+
+Una rete a maglia completa è una rete in cui ogni nodo è connesso a tutti gli altri nodi. Se un nodo non funziona o un cavo si rompe, la rete continua a funzionare.  Per poter connettere un nuovo nodo alla rete è necessario creare un numero di connessioni pari al numero di nodi già presenti nella rete, rendendo la rete poco flessibile ed estremamente costosa.
+
+![bg right:20% w:260px](maglia.png)
+
+---
+
+### Topologia a maglia parziale
+
+Una rete a maglia parziale è una rete in cui quasi ogni nodo è connesso a quasi tutti gli altri nodi. È meno costosa di una rete a maglia completa, più flessibile, ma meno resistente ad un guasto.
+
+![bg right:20% w:260px](maglia-par.png)
+
+---
+
+## Classificazione delle reti per modello
+
+Le reti **client/server** sono basate sul ruolo di alcuni host che svolgono la mansione di server, per fornire ad altri host alcuni servizi. Nelle reti di modello client/server il server, rimanendo sempre acceso e accessibile agli altri host, chiamati client, fornisce servizi a richiesta. Ad esempio un server web fornisce pagine web a richiesta dei client, un server di posta elettronica fornisce la possibilità di inviare e ricevere email, ma esistono anche server di stampa, server di database, ecc.
+
+Le reti **peer-to-peer** sono basate sul concetto di parità tra i vari host, che possono svolgere sia il ruolo di client che di server. In questo tipo di reti non esiste un server centrale, ma ogni host può fornire servizi agli altri host. Ad esempio, in una rete peer-to-peer, un host può condividere una cartella con gli altri host, che possono accedervi e scaricare i file contenuti.
+
+---
+
+## Tecniche di accesso al mezzo trasmissivo
+Le principali tecnologie di accesso multiplo al canale sono:
+- A divisione di tempo (TDMA)
+- A divisione di frequenza (FDMA)
+- Polling
+- Token passing
+
+---
+
+### TDMA (Time Division Multiple Access)
+
+La tecnica TDMA prevede che il canale trasmissivo venga diviso in intervalli di tempo, chiamati slot, che vengono assegnati ai vari host. Gli host devono essere sincronizzati tra loro, in modo che tutti gli host sappiano quando inizia e quando finisce il proprio slot. Ogni host può trasmettere solo durante il proprio slot di tempo e se un host non ha dati da trasmettere, il suo slot rimane vuoto.
+
+---
+
+### FDMA (Frequency Division Multiple Access)
+
+La tecnica FDMA prevede che il canale trasmissivo venga diviso in bande di frequenza, chiamate canali, che vengono assegnati ai vari host. Ogni host può trasmettere solo sulla propria banda di frequenza e se un host non ha dati da trasmettere, la sua banda rimane vuota. Per i due sensi di trasmissione vengono utilizzate due bande di frequenza differenti.
+
+---
+
+### Polling
+
+La tecnica di polling prevede che un host, chiamato master, interroghi gli altri host, chiamati slave, per sapere se hanno dati da trasmettere. Se un host ha dati da trasmettere, il master gli assegna il canale trasmissivo. Se un host non ha dati da trasmettere, il master interroga il successivo host. Se tutti gli host non hanno dati da trasmettere, il master ripete il ciclo di interrogazione.
+
+---
+
+### Token passing
+
+La tecnica di token passing prevede che un token, ovvero un messaggio di controllo, venga inviato in modo sequenziale da un host all'altro. L'host che possiede il token può trasmettere i dati, quando l'host non ha dati da trasmettere, passa il token al successivo host. Se tutti gli host non hanno dati da trasmettere, il token continua a girare tra gli host. Questa tecnica è utilizzata nelle reti ad anello.
+
+---
+
+## Altre tecniche di accesso 
+
+Esistono inoltre altre tecniche, generalmente chiamate tecniche di accesso multiplo a contesa, che prevedono che gli host competano per l'accesso al canale trasmissivo. Le principali tecniche di accesso a contesa sono:
+- Aloha
+- Aloha slotted
+- CSMA (Carrier Sense Multiple Access)
+- CSMA/CD (Carrier Sense Multiple Access with Collision Detection)
+- CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)
+
+CSMA/CD e CSMA/CA sono le tecniche di accesso multiplo più utilizzate nelle reti cablate e wireless.
+
+---
+
+## CSMA/CD (Carrier Sense Multiple Access with Collision Detection)
+
+A livello Data-Link, il protocollo più usato è Ethernet, che utilizza la tecnica di accesso multiplo CSMA/CD. 
+
+Tutti i dispositivi di una rete con tecnologia Ethernet possiedono un indirizzo proprio che deve essere univoco, chiamato MAC (Media Access Control) address. L’indirizzo MAC è un indirizzo che individua in maniera assolutamente univoca una scheda di rete in tutto il mondo. Questo indirizzo, chiamato anche indirizzo fisico, è formato da 6 Byte.
+
+La scheda di rete del nostro computer, quando riceve un pacchetto, costruisce il frame da trasmettere mediante il protocollo MAC che “avvolge” i dati con una intestazione (header) e una coda (trailer), e poi provvede a immettere il frame nella rete mediante il protocollo CSMA/CD.
+
+---
+
+## CSMA/CD
+
+Ogni frame contiene un preambolo, un delimitatore di start frame (SFD), l’indirizzo fisico (MAC) del destinatario, l’indirizzo fisico (MAC) del mittente, i dati da trasmettere e il codice per rilevamento degli errori FCS (Frame Check Sequence).
+
+![center](image-2.png)
+
+---
+
+## CSMA/CD
+
+Possiamo paragonare la comunicazione con l’algoritmo CSMA/CD a una conversazione dove ciascun partecipante consente all’altro di parlare: quando due voci si accavallano, i partecipanti provano a parlare nuovamente attendendo per un tempo che deve essere casuale. In una comunicazione ottimale i messaggi devono essere inviati e ricevuti senza intoppi, senza cioè congestioni di traffico.
+
+Prima di trasmettere un frame, la scheda di rete controlla se il canale trasmissivo è libero. Se il canale è libero, la scheda di rete trasmette il frame. Mentre invia il frame la scheda di rete continua a controllare che non ci siano collisioni. Se la scheda di rete rileva una collisione, interrompe la trasmissione e invia un segnale di collisione (segnale JAM). La scheda di rete attende quindi un tempo casuale chiamato backoff prima di ritrasmettere il frame. Se si supera il numero massimo di tentativi di trasmissione, generalmente 16, la scheda di rete segnala un errore di trasmissione al livello superiore.
+
+---
+
+![center height:620px](image-3.png)
